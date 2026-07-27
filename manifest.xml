@@ -140,7 +140,7 @@
 	<File name="Classes/FolderListControl.lua" part="program" sha1="72629b1e31a67c0af958d980c3e97586e91d0422" />
 	<File name="Classes/GemSelectControl.lua" part="program" sha1="8487aef15b1e005d00d8d8dbcef3555406523cdb" />
 	<File name="Classes/GemTooltip.lua" part="program" sha1="07f18ebc60700a7754fbae3e488ca2c9d0ef92f3" />
-	<File name="Classes/ImportTab.lua" part="program" sha1="6a4b4cc78e78dbf849f8bca3fa1a63f8907c7fe2" />
+	<File name="Classes/ImportTab.lua" part="program" sha1="f2f86167f5f58f30c6b040bb0de2bc9b99e1c2d7" />
 	<File name="Classes/Item.lua" part="program" sha1="0b918890141ed7ccc89297d1ca7018a622df329b" />
 	<File name="Classes/ItemDBControl.lua" part="program" sha1="6a9b9c8805c0af3cf24b9752165b1ee30c6f849c" />
 	<File name="Classes/ItemListControl.lua" part="program" sha1="909a4efe03ac4b993954627819bc0a02cd951fa1" />
@@ -342,6 +342,7 @@
 	<File name="GameVersions.lua" part="program" sha1="2ba59bb7443d8f829861fdd5794c57db14c894b3" />
 	<File name="Launch.lua" part="program" sha1="53c2f6a73b2e871722837d19708f4e5e8a1dc60b" />
 	<File name="LaunchServer.lua" part="program" sha1="7e8acd28def04dc4d5c20e7f6ac39c5a8b44d794" />
+	<File name="Modules/AnalysisJsonExporter.lua" part="program" sha1="3fd0abe0aceee25e91d742d645f37819d3ac665d" />
 	<File name="Modules/Build.lua" part="program" sha1="9f18c1294301e71bc5b9d1cda5bd060afee97f5a" />
 	<File name="Modules/BuildDisplayStats.lua" part="program" sha1="f1b0f89f803ae4493154ca5b78ddda457679dd30" />
 	<File name="Modules/BuildList.lua" part="program" sha1="d4ad3ff8e13558339f0c6d2f92157645618e0d65" />
