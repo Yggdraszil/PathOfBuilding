@@ -10,6 +10,7 @@ local b_rshift = bit.rshift
 local band = bit.band
 local m_max = math.max
 local dkjson = require "dkjson"
+local analysisJsonExporter = LoadModule("Modules/AnalysisJsonExporter")
 
 
 
@@ -493,7 +494,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	-- Build import/export
 	self.controls.sectionBuild = new("SectionControl",
 		{ "TOPLEFT", self.controls.sectionCharSiteImport, "BOTTOMLEFT", true },
-		{ 0, 18, 650, 182 }, "Build Sharing")
+		{ 0, 18, 650, 202 }, "Build Sharing")
 	self.controls.generateCodeLabel = new("LabelControl", { "TOPLEFT", self.controls.sectionBuild, "TOPLEFT" },
 		{ 6, 14, 0, 16 }, "^7Generate a code to share this build with other Path of Building users:")
 	self.controls.generateCode = new("ButtonControl", {"LEFT",self.controls.generateCodeLabel,"RIGHT"}, {4, 0, 80, 20}, "Generate", function()
@@ -565,7 +566,15 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		return #self.controls.generateCodeOut.buf > 0
 	end
 	self.controls.generateCodeNote = new("LabelControl", {"TOPLEFT",self.controls.generateCodeOut,"BOTTOMLEFT"}, {0, 4, 0, 14}, "^7Note: this code can be very long; you can use 'Share' to shrink it.")
-	self.controls.importCodeHeader = new("LabelControl", {"TOPLEFT",self.controls.generateCodeNote,"BOTTOMLEFT"}, {0, 26, 0, 16}, "^7To import a build, enter URL or code here:")
+	self.controls.exportAnalysisJson = new("ButtonControl", {"TOPLEFT",self.controls.generateCodeNote,"BOTTOMLEFT"}, {0, 8, 180, 20}, "Export Analysis JSON", function()
+		local path, errMsg = analysisJsonExporter.exportToDefaultPath(self.build)
+		if path then
+			main:OpenMessagePopup("Analysis JSON Exported", "Exported analysis JSON to:\n"..path)
+		else
+			main:OpenMessagePopup("Analysis JSON Export Error", errMsg or "The analysis JSON export failed.")
+		end
+	end)
+	self.controls.importCodeHeader = new("LabelControl", {"TOPLEFT",self.controls.exportAnalysisJson,"BOTTOMLEFT"}, {0, 8, 0, 16}, "^7To import a build, enter URL or code here:")
 
 	local importCodeHandle = function (buf)
 		self.importCodeSite = nil
